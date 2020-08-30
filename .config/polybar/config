@@ -1,0 +1,149 @@
+[colors]
+background = #dd222222
+background-alt = #d444444
+foreground = #dfdfdf
+foreground-alt = #555555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/top]
+width = 100%
+height = 24
+radius = 1
+bottom = false
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Roboto:style=Bold:size=12;1
+font-1 = FontAwesome5Free:style=Solid:size=11;1
+font-2 = FontAwesome5Free:style=Regular:size=11;1
+font-3 = FontAwesome5Brands:style=Regular:size=11;1
+
+modules-left = i3
+modules-center = date
+modules-right =
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = i3
+;override-redirect = true
+
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-default = 
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = #282A36
+label-focused-underline= #bd93f9
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 2
+label-unfocused-background = #282A36
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = 2
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-padding = 2
+
+
+
+[module/bspwm]
+type = internal/bspwm
+enable-click = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+
+
+format = <label-state><label-mode>
+
+label-monitor = %icon%
+
+label-focused = %icon%
+label-focused-padding = 2
+label-focused-background = "#BD93F9"
+label-focused-foreground = "#282A36"
+
+label-occupied = %icon%
+label-occupied-padding = 2
+
+label-dimmed-foreground = #282A36
+label-dimmed-underline = #BD93F9
+label-dimmed-focused-background = #BD93F9
+label-dimmed-padding = 2
+
+
+label-urgent = %icon%
+label-urgent-foreground = "#282A36"
+label-urgent-background = "#FF5555"
+label-urgent-underline = "#FF5555"
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-padding = 2
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = "%a, %b %d  "
+date-alt =
+
+time = %H:%M
+time-alt =
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #BD93F9
+
+label = %date% %time%
+
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
