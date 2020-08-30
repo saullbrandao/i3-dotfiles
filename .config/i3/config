@@ -188,9 +188,9 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 # Assign applications to workspaces
-assign [class="Google-chrome" instance="google-chrome"] 1
-assign [class="code-oss"] 2
-assign [class="Google-chrome" instance="crx_nneciieamikocnekpdhejocdfodflehk"] 3 
-assign [class="Google-chrome" instance="crx_fpmchfkamodmicjlpfpaibfpelkkjhbb"] 3
-assign [class="discord"] 4
-assign [class="Google-chrome" instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] 4 
+assign [class="Google-chrome" instance="google-chrome"] $ws1
+assign [class="code-oss"] $ws2
+assign [class="discord"] $ws4
+#assign [class="Google-chrome" instance="crx_nneciieamikocnekpdhejocdfodflehk"] $ws3 
+#assign [class="Google-chrome" instance="crx_fpmchfkamodmicjlpfpaibfpelkkjhbb"] $ws3
+#assign [class="Google-chrome" instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] $ws4 
