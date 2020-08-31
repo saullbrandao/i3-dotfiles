@@ -51,9 +51,6 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -101,12 +98,6 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 #bindsym $mod+Shift+9 move container to workspace number $ws9
 #bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# Open specific applications in floating mode
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Nemo"] floating enable
-
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -116,7 +107,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Pause mode "$mode_system"
 set $mode_system (l)ock, (e)xit, (r)eboot, (s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id dm-tool switch-to-greeter, mode "default"
+    bindsym l exec --no-startup-id light-locker-command -l, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
@@ -129,12 +120,7 @@ mode "$mode_system" {
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
+        
         bindsym Left        resize shrink width 10 px or 10 ppt
         bindsym Down        resize grow height 10 px or 10 ppt
         bindsym Up          resize shrink height 10 px or 10 ppt
@@ -151,30 +137,21 @@ bindsym $mod+r mode "resize"
 bindsym $mod+b exec google-chrome-stable
 
 # Autostart applications
+exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
 exec feh --no-fehbg --bg-scale '/home/saull/Pictures/wp.jpg'
 exec picom -f -b
-exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
-exec --no-startup-id volumeicon
+exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 exec --no-startup-id setxkbmap -layout us -variant altgr-intl
 exec google-chrome-stable
-
 
 #Gaps
 
 gaps inner 4
 gaps outer 4
 smart_gaps on
-
-#Set volume control
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
-#bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
-
-bindsym $mod+F12 exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
-bindsym $mod+F11 exec --no-startup-id amixer -c 0 -q set Master 2db- unmute
-bindsym $mod+F10 exec --no-startup-id amixer -q set Master toggle
 
 
 #Colors 
@@ -187,13 +164,15 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
 
+# Open specific applications in floating mode
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Pavucontrol"] floating enable
+
 # Assign applications to workspaces
-assign [class="Google-chrome" instance="google-chrome"] $ws1
-assign [class="code-oss"] $ws2
-assign [class="discord"] $ws4
-#assign [class="Google-chrome" instance="crx_nneciieamikocnekpdhejocdfodflehk"] $ws3 
-#assign [class="Google-chrome" instance="crx_fpmchfkamodmicjlpfpaibfpelkkjhbb"] $ws3
-#assign [class="Google-chrome" instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"] $ws4 
-assign [class="Google-chrome" instance="web.whatsapp.com"] $ws4
-assign [class="Google-chrome" instance="primevideo.com"] $ws3
-assign [class="Google-chrome" instance="music.amazon.com.br"] $ws3
+assign [class="Google-chrome" instance="google-chrome"] 1
+assign [class="code-oss"] 2
+assign [class="discord"] 4
+assign [class="Google-chrome" instance="web.whatsapp.com"] 4
+assign [class="Google-chrome" instance="primevideo.com"] 3
+assign [class="Google-chrome" instance="music.amazon.com.br"] 3
+assign [class="vlc"] 3
