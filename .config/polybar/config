@@ -1,6 +1,6 @@
 [colors]
-background = #dd222222
-background-alt = #ddd44444
+background = #55000000
+background-alt = #aad44444
 foreground = #dfdfdf
 foreground-alt = #555555
 primary = #ffb52a
@@ -28,7 +28,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = SF Pro Display:style=Medium:size=11;1
+font-0 = SF Pro Display:style=Bold:size=11;1
 font-1 = FontAwesome5Free:style=Solid:size=11;1
 font-2 = FontAwesome5Free:style=Regular:size=11;1
 font-3 = FontAwesome5Brands:style=Regular:size=11;1
@@ -62,14 +62,14 @@ ws-icon-default = 
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = #282A36
+label-focused-background = #55000000
 label-focused-underline= #bd93f9
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-padding = 2
-label-unfocused-background = #282A36
+label-unfocused-background = #55000000
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
