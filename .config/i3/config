@@ -34,28 +34,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -103,19 +86,14 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# Set shut down, restart and locking features
-bindsym $mod+Pause mode "$mode_system"
-set $mode_system (l)ock, (e)xit, (r)eboot, (s)hutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id light-locker-command -l, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+bindsym $mod+l exec --no-startup-id light-locker-command -l
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+bindsym $mod+Ctrl+p exec --no-startup-id systemctl poweroff -i
+
+bindsym $mod+Ctrl+e exec --no-startup-id i3-msg exit
+
+bindsym $mod+Ctrl+r exec --no-startup-id systemctl reboot
+
 
 
 # resize window (you can also use the mouse for that)
@@ -137,6 +115,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+b exec google-chrome-stable
 
 # Autostart applications
+exec_always /usr/bin/light-locker
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
